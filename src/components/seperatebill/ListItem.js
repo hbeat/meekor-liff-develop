@@ -1,10 +1,10 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import Sheet from 'react-modal-sheet';
-import styled from 'styled-components';
-import axios from 'axios';
-import { response } from 'express';
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Sheet from "react-modal-sheet";
+import styled from "styled-components";
+import axios from "axios";
+import { response } from "express";
+import React, { useState, useEffect } from "react";
 
 const ListItem = ({ passedData, passToParent }) => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const ListItem = ({ passedData, passToParent }) => {
 
   // add property member to item list
   list.forEach(function (e) {
-    e.member = ['mem', 'mem2'];
+    e.member = ["mem", "mem2"];
   });
   // console.log(list, 'listttt');
 
@@ -25,20 +25,20 @@ const ListItem = ({ passedData, passToParent }) => {
     passToParent(checkedItems);
   };
 
-  /*useEffect(() => {
+  useEffect(() => {
     axios
-      .get('http://localhost:3000/group')
+      .get("http://localhost:3000/group")
       .then((response) => {
         //console.log(response.data[0].user_id);
         //setMemberlist();
-        setMemberlist({ memberlist: response.data[0].user_id });
+        setMemberlist(response.data[0].user_id);
       })
       .catch(function (error) {
         console.log(error);
       });
     console.log(memberlist);
     //console.log(memberlist);
-  });*/
+  });
 
   /*  useEffect(() => {
     getProducts();
@@ -82,11 +82,11 @@ const ListItem = ({ passedData, passToParent }) => {
   const [checked, setChecked] = React.useState([]);
 
   // mockData(group members)
-  const checkList = ['Unn', 'HB', 'Creamder', 'gade'];
+  const checkList = ["Unn", "HB", "Creamder", "gade"];
 
   // Add/Remove checked item from list
   const handleCheck = (event) => {
-    console.log(checkedItems, '------------------------------');
+    console.log(checkedItems, "------------------------------");
     var updatedList = [...checked];
     if (event.target.checked) {
       updatedList = [...checked, event.target.value];
@@ -99,12 +99,12 @@ const ListItem = ({ passedData, passToParent }) => {
   // Generate string of checked items
   const checkedItems = checked.length
     ? checked.reduce((total, item) => {
-        return total + ', ' + item;
+        return total + ", " + item;
       })
-    : '';
+    : "";
 
   var isChecked = (item) =>
-    checked.includes(item) ? 'checked-item' : 'not-checked-item';
+    checked.includes(item) ? "checked-item" : "not-checked-item";
 
   const onSubmit = () => {
     console.log(checkedItems);
@@ -127,8 +127,8 @@ const ListItem = ({ passedData, passToParent }) => {
                 ))}
               </div>
               <button class=" p-3 bg-green-300 rounded-full m-1" onClick={open}>
-                {' '}
-                +{' '}
+                {" "}
+                +{" "}
               </button>
             </div>
           </div>
@@ -145,7 +145,18 @@ const ListItem = ({ passedData, passToParent }) => {
           <Sheet.Header />
 
           <Sheet.Content>
-            <BoxList></BoxList>
+            <BoxList>
+              {memberlist.map((item, index) => (
+                <div key={index}>
+                  <input
+                    value={item.name}
+                    type="checkbox"
+                    onChange={handleCheck}
+                  />
+                  <span className={isChecked(item.name)}>{item.name}</span>
+                </div>
+              ))}
+            </BoxList>
           </Sheet.Content>
         </Sheet.Container>
 

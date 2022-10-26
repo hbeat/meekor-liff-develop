@@ -1,19 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { LiffProvider } from 'react-liff';
+import React from "react";
+import ReactDOM, { createRoot } from "react-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LiffProvider } from "react-liff";
 
-import './style.css';
-import App from './App';
-import SecondPage from './components/SecondPage.js';
-import SeperateBill from './components/seperatebill/seperateBillPage';
-import AddAccountPage from './components/addacc/addAccountPage.js';
-import AddPromptpayPage from './components/addacc/addPromptpay.js';
+import "./style.css";
+import App from "./App";
+import SecondPage from "./components/SecondPage.js";
+import SeperateBill from "./components/seperatebill/seperateBillPage";
+import AddAccountPage from "./components/addacc/addAccountPage.js";
+import AddPromptpayPage from "./components/addacc/addPromptpay.js";
 
-const liffId = '1657478303-ZWDEv42q';
+const liffId = "1657478303-ZWDEv42q";
 const stubEnabled = false;
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
     <LiffProvider liffId={liffId} stubEnabled={stubEnabled}>
       <BrowserRouter>
@@ -34,6 +36,5 @@ ReactDOM.render(
         </Routes>
       </BrowserRouter>
     </LiffProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
