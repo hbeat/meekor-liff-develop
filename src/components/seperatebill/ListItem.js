@@ -5,7 +5,6 @@ import styled from "styled-components";
 import axios from "axios";
 import { response } from "express";
 import React, { useState, useEffect } from "react";
-
 const ListItem = ({ passedData, passToParent }) => {
   const location = useLocation();
   const list = passedData;
@@ -139,7 +138,7 @@ const ListItem = ({ passedData, passToParent }) => {
         rootId="root"
         isOpen={isOpen}
         onClose={close}
-        snapPoints={[-5, 200, 0.5]}
+        snapPoints={[-50, 0.5, 200, 0]}
         initialSnap={2}
       >
         <Sheet.Container>
