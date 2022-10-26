@@ -30,6 +30,7 @@ const ListItem = ({ passedData, passToParent }) => {
       .get("http://localhost:3000/group")
       .then((response) => {
         //console.log(response.data[0].user_id);
+        console.log(response);
         //setMemberlist();
         setMemberlist(response.data[0].user_id);
       })
@@ -38,7 +39,7 @@ const ListItem = ({ passedData, passToParent }) => {
       });
     console.log(memberlist);
     //console.log(memberlist);
-  });
+  }, []);
 
   /*  useEffect(() => {
     getProducts();
