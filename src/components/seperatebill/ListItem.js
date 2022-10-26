@@ -149,12 +149,8 @@ const ListItem = ({ passedData, passToParent }) => {
             <BoxList>
               {memberlist.map((item, index) => (
                 <div key={index}>
-                  <input
-                    value={item.name}
-                    type="checkbox"
-                    onChange={handleCheck}
-                  />
-                  <span className={isChecked(item.name)}>{item.name}</span>
+                  <input value={item} type="checkbox" onChange={handleCheck} />
+                  <span className={isChecked(item)}>{item}</span>
                 </div>
               ))}
             </BoxList>
