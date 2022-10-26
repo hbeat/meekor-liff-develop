@@ -16,25 +16,23 @@ const stubEnabled = false;
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  <React.StrictMode>
-    <LiffProvider liffId={liffId} stubEnabled={stubEnabled}>
-      <BrowserRouter>
-        <App />
-        <Routes>
-          {/* <Route path="/first" element={<FirstPage />} /> */}
-          <Route path="/" element={<SecondPage />} />
+  <LiffProvider liffId={liffId} stubEnabled={stubEnabled}>
+    <BrowserRouter>
+      <App />
+      <Routes>
+        {/* <Route path="/first" element={<FirstPage />} /> */}
+        <Route path="/" element={<SecondPage />} />
 
-          {/* <Route path="/" element={<AddMemberPage />} /> */}
-          {/* <Route path="/add_member" element={<AddMemberPage />} /> */}
+        {/* <Route path="/" element={<AddMemberPage />} /> */}
+        {/* <Route path="/add_member" element={<AddMemberPage />} /> */}
 
-          {/* <Route path="/" element={<SeperateBill />} /> */}
-          <Route path="/separate_bill" element={<SeperateBill />} />
+        {/* <Route path="/" element={<SeperateBill />} /> */}
+        <Route path="/separate_bill" element={<SeperateBill />} />
 
-          {/* <Route path="/" element={<AddAccountPage />} /> */}
-          <Route path="/add_account" element={<AddAccountPage />} />
-          <Route path="/add_promptpay" element={<AddPromptpayPage />} />
-        </Routes>
-      </BrowserRouter>
-    </LiffProvider>
-  </React.StrictMode>
+        {/* <Route path="/" element={<AddAccountPage />} /> */}
+        <Route path="/add_account" element={<AddAccountPage />} />
+        <Route path="/add_promptpay" element={<AddPromptpayPage />} />
+      </Routes>
+    </BrowserRouter>
+  </LiffProvider>
 );
